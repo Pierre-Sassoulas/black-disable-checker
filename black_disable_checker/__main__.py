@@ -18,15 +18,13 @@ def main(argv: Union[List[str], None] = None) -> int:
     offending_files = []
     for file_name in args.filenames:
         try:
-            with open(file_name, encoding="utf8") as fp:
-                if "# fmt: off" in fp.read():
+            with open(file_name, encoding="utf8") as f:
+                if "# fmt: off" in f.read():
                     offending_files.append(file_name)
         except UnicodeDecodeError:
             pass
     if offending_files:
-        print(
-            f"Please do not use '# fmt: off' in {', '.join(offending_files)}, apply black everywhere."
-        )
+        print(f"Please do not use '# fmt: off' in {', '.join(offending_files)}, apply black everywhere.")
         sys.exit(-1)
     sys.exit(0)
 
