@@ -9,3 +9,12 @@
 By using it, you agree to really cede control over minutiae of hand-formatting.
 In return, you will not have to argue about disabling black or not. You will save
 time and mental energy for more important matters.
+
+## Installation
+
+```yaml
+-   repo: https://github.com/Pierre-Sassoulas/black-disable-checker/
+    rev: 1.0.1
+    hooks:
+    - id: black-disable-checker
+```

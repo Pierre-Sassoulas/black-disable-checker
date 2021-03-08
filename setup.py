@@ -9,7 +9,7 @@ setup(
     long_description=README,
     long_description_content_type="text/markdown",
     name="black-disable-checker",
-    version="1.0.0",
+    version="1.0.1",
     packages=["black_disable_checker"],
     entry_points={"console_scripts": ["black-disable-checker=black_disable_checker.__main__:main"]},
     install_requires=[],
