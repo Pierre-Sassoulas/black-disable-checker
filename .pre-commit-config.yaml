@@ -1,11 +1,11 @@
 repos:
 -   repo: https://github.com/Pierre-Sassoulas/black-disable-checker/
-    rev: 0.0.1
+    rev: 1.0.1
     hooks:
     - id: black-disable-checker
       exclude: black_disable_checker/__main__.py|tests/fixture.py
--   repo: https://github.com/ambv/black
-    rev: 20.8b1
+-   repo: https://github.com/psf/black
+    rev: 21.12b0
     hooks:
     - id: black
       args: [--safe, --quiet, --line-length=120]
