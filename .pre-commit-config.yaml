@@ -3,7 +3,7 @@ repos:
     rev: 1.0.1
     hooks:
     - id: black-disable-checker
-      exclude: black_disable_checker/__main__.py|tests/*
+      exclude: black_disable_checker/__main__.py|tests/
 -   repo: https://github.com/psf/black
     rev: 22.3.0
     hooks:
