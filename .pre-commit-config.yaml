@@ -1,11 +1,25 @@
 repos:
--   repo: https://github.com/Pierre-Sassoulas/black-disable-checker/
+  - repo: https://github.com/Pierre-Sassoulas/black-disable-checker/
     rev: 1.0.1
     hooks:
-    - id: black-disable-checker
-      exclude: black_disable_checker/__main__.py|tests/
--   repo: https://github.com/psf/black
+      - id: black-disable-checker
+        exclude: black_disable_checker/__main__.py|tests/
+  - repo: https://github.com/psf/black
     rev: 22.3.0
     hooks:
-    - id: black
-      args: [--safe, --quiet]
+      - id: black
+        args: [--safe, --quiet]
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: v2.5.1
+    hooks:
+      - id: prettier
+        args: [--prose-wrap=always, --print-width=88]
+  - repo: local
+    hooks:
+      - id: pylint
+        name: pylint
+        entry: pylint
+        language: system
+        exclude: tests
+        args: ["-sn", "-rn", "--disable=C0111,C0103"]
+        types: [python]
