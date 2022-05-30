@@ -1,5 +1,5 @@
--   id: black-disable-checker
-    name: black-disable-checker
-    entry: black-disable-checker
-    language: python
-    'types': [python]
+- id: black-disable-checker
+  name: black-disable-checker
+  entry: black-disable-checker
+  language: python
+  "types": [python]

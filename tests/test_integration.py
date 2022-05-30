@@ -8,6 +8,13 @@ from black_disable_checker.__main__ import main
 TEST_DIRECTORY = Path(__file__).parent
 
 
+def test_integration_no_args() -> None:
+    with patch("sys.argv", ["black-disable-checker"]):
+        with pytest.raises(SystemExit) as e:
+            main()
+    assert e.value.code == 0
+
+
 @pytest.mark.parametrize(
     "file_path,expected",
     [
@@ -18,9 +25,6 @@ TEST_DIRECTORY = Path(__file__).parent
     ],
 )
 def test_integration(file_path: str, expected: str, capsys) -> None:
-    with pytest.raises(SystemExit) as e:
-        main()
-    assert e.value.code == 0
     with patch(
         "sys.argv",
         ["black-disable-checker", str(TEST_DIRECTORY / f"fixture_{file_path}.py")],
