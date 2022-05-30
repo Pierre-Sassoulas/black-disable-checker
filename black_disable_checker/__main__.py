@@ -4,6 +4,8 @@ import argparse
 import sys
 from typing import List, Union
 
+DISABLES_PRAGMAS = {"# fmt: skip", "# yapf: disable", "# fmt: off"}
+
 
 def main(argv: Union[List[str], None] = None) -> int:
     argv = argv or sys.argv[1:]
@@ -16,15 +18,24 @@ def main(argv: Union[List[str], None] = None) -> int:
     )
     args = parser.parse_args(argv)
     offending_files = []
+    offending_pragmas = []
     for file_name in args.filenames:
         try:
             with open(file_name, encoding="utf8") as f:
-                if "# fmt: off" in f.read():
+                content = f.read()
+            for pragma in DISABLES_PRAGMAS:
+                if pragma in content:
+                    offending_pragmas.append(pragma)
                     offending_files.append(file_name)
         except UnicodeDecodeError:
             pass
     if offending_files:
-        print(f"Please do not use '# fmt: off' in {', '.join(offending_files)}, apply black everywhere.")
+        pragmas = "', or '".join(sorted(offending_pragmas))
+        print(
+            f"Please do not use '{pragmas}' in '{', '.join(offending_files)}',"
+            " apply black everywhere.",
+            file=sys.stderr,
+        )
         sys.exit(-1)
     sys.exit(0)
 
