@@ -3,7 +3,7 @@ ci:
 
 repos:
   - repo: https://github.com/Pierre-Sassoulas/black-disable-checker/
-    rev: 1.0.1
+    rev: v1.1.0
     hooks:
       - id: black-disable-checker
         exclude: black_disable_checker/__main__.py|tests/
@@ -13,7 +13,7 @@ repos:
       - id: black
         args: [--safe, --quiet]
   - repo: https://github.com/pre-commit/mirrors-prettier
-    rev: v2.5.1
+    rev: v2.6.2
     hooks:
       - id: prettier
         args: [--prose-wrap=always, --print-width=88]
