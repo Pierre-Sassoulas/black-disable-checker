@@ -19,7 +19,9 @@ def test_integration_no_args() -> None:
     "file_path,expected",
     [
         ["fmt_off", "Please do not use '# fmt: off'"],
+        ["fmt_off_no_space", "Please do not use '# fmt:off'"],
         ["fmt_skip", "Please do not use '# fmt: skip'"],
+        ["fmt_skip_no_space", "Please do not use '# fmt:skip'"],
         ["yapf_disable", "Please do not use '# yapf: disable'"],
         ["multiple", "Please do not use '# fmt: skip', or '# yapf: disable'"],
     ],
