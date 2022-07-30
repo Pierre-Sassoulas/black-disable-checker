@@ -9,7 +9,8 @@ DISABLES_PRAGMAS = {
     "# fmt: off",
     "# fmt: skip",
     "# fmt:skip",
-    "# yapf: disable"}
+    "# yapf: disable",
+}
 
 
 def main(argv: Union[List[str], None] = None) -> int:
