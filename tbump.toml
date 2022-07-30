@@ -1,0 +1,22 @@
+github_url = "https://github.com/Pierre-Sassoulas/black-disable-checker"
+
+[version]
+current = "1.1.0"
+regex = '''
+^(?P<major>0|[1-9]\d*)
+\.
+(?P<minor>0|[1-9]\d*)
+\.
+(?P<patch>0|[1-9]\d*)
+(?:-(?P<prerelease>(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+(?P<buildmetadata>[0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$
+'''
+
+[git]
+message_template = "Bump 'black-disable-checker' to {new_version}"
+tag_template = "v{new_version}"
+
+[[file]]
+src = "README.md"
+
+[[file]]
+src = "setup.cfg"
