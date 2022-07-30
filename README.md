@@ -15,7 +15,7 @@ more important matters.
 
 ```yaml
 - repo: https://github.com/Pierre-Sassoulas/black-disable-checker/
-  rev: 1.1.0
+  rev: 1.1.1
   hooks:
     - id: black-disable-checker
 ```
