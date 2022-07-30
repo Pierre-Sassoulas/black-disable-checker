@@ -4,7 +4,12 @@ import argparse
 import sys
 from typing import List, Union
 
-DISABLES_PRAGMAS = {"# fmt: skip", "# yapf: disable", "# fmt: off"}
+DISABLES_PRAGMAS = {
+    "# fmt:off",
+    "# fmt: off",
+    "# fmt: skip",
+    "# fmt:skip",
+    "# yapf: disable"}
 
 
 def main(argv: Union[List[str], None] = None) -> int:
