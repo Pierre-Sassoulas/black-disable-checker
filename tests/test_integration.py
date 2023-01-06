@@ -27,13 +27,12 @@ def test_integration_no_args() -> None:
     ],
 )
 def test_integration(file_path: str, expected: str, capsys) -> None:
-    with patch(
-        "sys.argv",
-        ["black-disable-checker", str(TEST_DIRECTORY / f"fixture_{file_path}.py")],
-    ):
+    file_path = str(TEST_DIRECTORY / f"fixture_{file_path}.py")
+    with patch("sys.argv", ["black-disable-checker", file_path]):
         with pytest.raises(SystemExit) as e:
             main()
         assert e.value.code == -1
     out, err = capsys.readouterr()
     assert not out
     assert expected in err
+    assert err.count(file_path) <= 1

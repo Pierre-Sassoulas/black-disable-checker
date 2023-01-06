@@ -23,7 +23,7 @@ def main(argv: Union[List[str], None] = None) -> int:
         help="File names to modify",
     )
     args = parser.parse_args(argv)
-    offending_files = []
+    offending_files = set()
     offending_pragmas = []
     for file_name in args.filenames:
         try:
@@ -32,7 +32,7 @@ def main(argv: Union[List[str], None] = None) -> int:
             for pragma in DISABLES_PRAGMAS:
                 if pragma in content:
                     offending_pragmas.append(pragma)
-                    offending_files.append(file_name)
+                    offending_files.add(file_name)
         except UnicodeDecodeError:
             pass
     if offending_files:
