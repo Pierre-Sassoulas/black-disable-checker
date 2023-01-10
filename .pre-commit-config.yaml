@@ -3,7 +3,7 @@ ci:
 
 repos:
   - repo: https://github.com/Pierre-Sassoulas/black-disable-checker/
-    rev: v1.1.1
+    rev: v1.1.3
     hooks:
       - id: black-disable-checker
         exclude: black_disable_checker/__main__.py|tests/
